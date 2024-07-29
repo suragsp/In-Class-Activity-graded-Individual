@@ -31,3 +31,16 @@ Copy code
 kubectl apply -f nginx/configmap.yaml
 kubectl apply -f nginx/deployment.yaml
 kubectl apply -f nginx/service.yaml
+
+6. Set Up Argo CD
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+7. Access Argo CD: 
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+8. Login to Argo CD
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+
+9. 
+
